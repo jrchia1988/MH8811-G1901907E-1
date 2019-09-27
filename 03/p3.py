@@ -29,6 +29,8 @@ def select_program():
             time.sleep(2)
         print('Do you want me to: \n1. greet the world?\n2. greet you?\n3. convert temperature from Celsius to Fahrenheit?')
         prog=input('Pls enter a number (or press q to quit):')
+        if prog=='q':
+            print('We hope to see you again. Goodbye!')
         
  select_program()
   
