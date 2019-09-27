@@ -1,6 +1,6 @@
 
 cd ~/Desktop
 mkdir MH8811_02
-touch MH8811_02/my file.txt
+New-Item -Type File MH8811_02/my file.txt
 cd ~/Desktop
 rmdir MH8811_02
