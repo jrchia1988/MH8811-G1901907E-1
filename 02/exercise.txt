@@ -1,1 +1,6 @@
 
+cd ~/Desktop
+mkdir MH8811_02
+mk MH8811_02/my file.txt
+cd ~/Desktop
+rmdir MH8811_02
