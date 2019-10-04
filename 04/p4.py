@@ -4,9 +4,9 @@ min_value=None
 for i in c_list:
     if min_value==None:
         min_value=i
-    else:
-        if i<min_value:
-            min_value=i
+        continue
+    if i<min_value:
+        min_value=i
 print(min_value)
 
 #C2
@@ -15,9 +15,9 @@ def my_min(ls):
     for i in ls:
         if min_value==None:
             min_value=i
-        else:
-            if i<min_value:
-                min_value=i
+            continue
+        if i<min_value:
+            min_value=i
     return min_value
     
 def my_max(ls):
@@ -25,9 +25,9 @@ def my_max(ls):
     for i in ls:
         if max_value==None:
             max_value=i
-        else:
-            if i>max_value:
-                max_value=i
+            continue
+        if i>max_value:
+            max_value=i
     return max_value
     
 def my_average(ls):
