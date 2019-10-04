@@ -32,7 +32,7 @@ def my_max(ls):
     
 def my_average(ls):
     total_sum=0
-    for i in range(len(ls)):
+    for i in ls:
         total_sum+=i
     average_value=total_sum/len(ls)
     print(average_value)
