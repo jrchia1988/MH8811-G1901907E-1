@@ -1,34 +1,43 @@
 #C1
 c_list=[9,41,12,3,74,15]
-min_value=c_list[0]
-for i in range(1,len(c_list)):
-    if c_list[i]<min_value:
-        min_value=c_list[i]
+min_value=None
+for i in c_list:
+    if min_value==None:
+        min_value=i
+    else:
+        if i<min_value:
+            min_value=i
 print(min_value)
 
 #C2
-def min_(ls):
-    min_value=ls[0]
-    for i in range(1,len(ls)):    
-        if ls[i]<min_value:
-            min_value=ls[i]
+def my_min(ls):
+    min_value=None
+    for i in ls:
+        if min_value==None:
+            min_value=i
+        else:
+            if i<min_value:
+                min_value=i
     print(min_value)
     
-def max_(ls):
-    max_value=ls[0]
-    for i in range(1,len(ls)):
-        if ls[i]>max_value:
-            max_value=ls[i]
+def my_max(ls):
+    max_value=None
+    for i in ls:
+        if max_value==None:
+            max_value=i
+        else:
+            if i>max_value:
+                max_value=i
     print(max_value)
     
-def average(ls):
+def my_average(ls):
     total_sum=0
     for i in range(len(ls)):
         total_sum+=i
     average_value=total_sum/len(ls)
     print(average_value)
     
-def median(ls):
+def my_median(ls):
     ls=sorted(ls)
     if len(ls)%2==0:
           i=int(len(ls)/2)
@@ -38,14 +47,14 @@ def median(ls):
           median_value=ls[i]
     print(median_value)
     
-def range_(ls):
-    print(max(ls)-min(ls))
+def my_range(ls):
+    print(my_max(ls)-my_min(ls))
     
-min_(c1_list)
-max_(c1_list)
-average(c1_list)
-median(c1_list)
-range_(c1_list)
+my_min(c1_list)
+my_max(c1_list)
+my_average(c1_list)
+my_median(c1_list)
+my_range(c1_list)
 
 #C3
 def getFileLines(fname):
@@ -60,16 +69,16 @@ def getFileLines(fname):
       
 lines=getFileLines('MH8811-04-Data.csv')
 
-average(lines)
-min_(lines)
-max_(lines)
-median(lines)
-range_(lines)
+my_average(lines)
+my_min(lines)
+my_max(lines)
+my_median(lines)
+my_range(lines)
 
 #Homework
 def sample_variance(ls):
     total_sum=0
-    mean=average(ls)
+    mean=my_average(ls)
     for i in ls:
         total_sum+=(i-mean)**2
     variance=total_sum/len(ls)-1
