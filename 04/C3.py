@@ -7,7 +7,7 @@ def getFileLines(fname):
                   lines.append(line)
       return lines
       
-getFileLines('MH8811-04-Data.csv')
+lines=getFileLines('MH8811-04-Data.csv')
 
 from C2 import average,min_,max_,median,range_
 
