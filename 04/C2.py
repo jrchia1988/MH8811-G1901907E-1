@@ -20,7 +20,7 @@ def average(ls):
     print(average_value)
     
 def median(ls):
-    ls=sorted(ls,ascending=True)
+    ls=sorted(ls)
     if len(ls)%2==0:
           i=int(len(ls)/2)
           median_value=(ls[i]+ls[i+1])/2
