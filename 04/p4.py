@@ -18,7 +18,7 @@ def my_min(ls):
         else:
             if i<min_value:
                 min_value=i
-    print(min_value)
+    return min_value
     
 def my_max(ls):
     max_value=None
@@ -28,14 +28,14 @@ def my_max(ls):
         else:
             if i>max_value:
                 max_value=i
-    print(max_value)
+    return max_value
     
 def my_average(ls):
     total_sum=0
     for i in ls:
         total_sum+=i
     average_value=total_sum/len(ls)
-    print(average_value)
+    return average_value
     
 def my_median(ls):
     ls.sort()
@@ -45,16 +45,17 @@ def my_median(ls):
     else:
           i=(len(ls)+1)/2
           median_value=ls[i]
-    print(median_value)
-    
+    return median_value
+
 def my_range(ls):
-    print(my_max(ls)-my_min(ls))
+    range_value=my_max(ls)-my_min(ls)
+    return range_value
     
-my_min(c1_list)
-my_max(c1_list)
-my_average(c1_list)
-my_median(c1_list)
-my_range(c1_list)
+print('Min: ',my_min(c1_list))
+print('Max: ',my_max(c1_list))
+print('Average :',my_average(c1_list))
+print('Median: ',my_median(c1_list))
+print('Range: ',my_range(c1_list))
 
 #C3
 def getFileLines(fname):
@@ -69,11 +70,11 @@ def getFileLines(fname):
       
 lines=getFileLines('MH8811-04-Data.csv')
 
-my_average(lines)
-my_min(lines)
-my_max(lines)
-my_median(lines)
-my_range(lines)
+print('Average: ',my_average(lines))
+print('Min: ',my_min(lines))
+print('Max: ',my_max(lines))
+print('Median: ',my_median(lines))
+print('Range: ',my_range(lines))
 
 #Homework
 def sample_variance(ls):
@@ -81,8 +82,8 @@ def sample_variance(ls):
     mean=my_average(ls)
     for i in ls:
         total_sum+=(i-mean)**2
-    variance=total_sum/len(ls)-1
-    print(variance)
+    variance=total_sum/(len(ls)-1)
+    return variance
 
-sample_variance(lines)
+print('Sample Variance: ',sample_variance(lines))
     
