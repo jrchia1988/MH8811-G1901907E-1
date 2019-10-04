@@ -5,6 +5,7 @@ def getFileLines(fname):
             line=line.rstrip()
             if line:
                   lines.append(line)
+      fhandle.close()
       return lines
       
 lines=getFileLines('MH8811-04-Data.csv')
