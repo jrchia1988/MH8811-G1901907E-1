@@ -41,7 +41,7 @@ def my_median(ls):
     ls.sort()
     if len(ls)%2==0:
           i=int(len(ls)/2)
-          median_value=(ls[i]+ls[i+1])/2
+          median_value=(ls[i]+ls[i-1])/2
     else:
           i=(len(ls)+1)/2
           median_value=ls[i]
