@@ -2,24 +2,31 @@
 
 import pickle
 
+lst=[1,2,3,4,5]
+
 def serialize(lst):
     string=''
     for i in lst:
         string+=i
-    file=input('Pls type in filename:')
-    file=pickle.dumps(string)
-    print(pickle.load(file)) 
+    string='|'.join(string)
+    return string
     
 def deserialize(string):
     lst=[]
     for i in string.split():
-        lst.append(i)
+        lst.append(int(i))
     return lst
 
-def compare(lst1,lst2):
-    if lst1==lst2:
+def compare(lst):
+    lst1=deserialize(lst)
+    if lst==lst1:
         print('Success!')
-        
-    
+
+serialized=serialize(lst)        
+file=input('Pls type in filename:')
+file=pickle.dumps(serialized)
+pickle.load(file)
+
+compare(serialized)
          
          
