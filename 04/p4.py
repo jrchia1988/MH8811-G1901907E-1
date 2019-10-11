@@ -69,6 +69,9 @@ def getFileLines(fname):
       return lines
       
 lines=getFileLines('MH8811-04-Data.csv')
+lines_=[]
+for i in lines:
+    lines_.append(float(i))
 
 print('Average: ',my_average(lines))
 print('Min: ',my_min(lines))
@@ -85,5 +88,5 @@ def sample_variance(ls):
     variance=total_sum/(len(ls)-1)
     return variance
 
-print('Sample Variance: ',sample_variance(lines))
+print('Sample Variance: ',sample_variance(lines_))
     
