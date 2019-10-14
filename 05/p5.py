@@ -36,7 +36,8 @@ compare(serialized)
 #Homework
 
 import json
-filename=input('Pls select file: H1, H2, H3, H4, H5')
+file=input('Pls select file: H1, H2, H3, H4, H5')
+filename=file+'.json'
 fh=open(filename)
 data=json.load(fh)
 fh.close()
