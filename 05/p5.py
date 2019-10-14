@@ -13,7 +13,7 @@ def serialize(lst):
     
 def deserialize(string):
     lst=[]
-    for i in string.split():
+    for i in string.split('|'):
         lst.append(int(i))
     return lst
 
@@ -24,9 +24,32 @@ def compare(lst):
 
 serialized=serialize(lst)        
 file=input('Pls type in filename:')
-file=pickle.dumps(serialized)
-pickle.load(file)
+filename=file+'.pkl'
+a=open(filename,'wb')
+pickle.dump(serialized,a)
+a.close()
+b=open(filename,'rb')
+serialized=pickle.load(file,b)
 
 compare(serialized)
-         
+
+#Homework
+
+import json
+filename=input('Pls select file: H1, H2, H3, H4, H5')
+fh=open(filename)
+data=json.load(fh)
+fh.close()
+serialized=serialize(data)
+file=input('Pls type in filename:')
+filename=file+'.pkl'
+a=open(filename,'wb')
+pickle.dump(serialized,a)
+a.close()
+b=open(filename,'rb')
+serial=pickle.load(b)
+if deserialize(serial)==data:
+    print('Success!')
+
+
          
