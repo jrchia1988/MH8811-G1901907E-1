@@ -71,11 +71,11 @@ fh.close()
 serialized=serialize(data)
 file=input('Pls type in filename:')
 filename=file+'.pkl'
-with open(filename,'w') as a:
-    pickle.dump(serialized,a)
+a=open(filename,'wb')
+pickle.dump(serialized,a)
 a.close()
-with open(filename,'r') as b:
-    serial=pickle.load(b)
+b=open(filename,'rb') 
+serial=pickle.load(b)
 serial=deserialize(serial)
 compare(data,serial)
 
