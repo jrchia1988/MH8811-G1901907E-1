@@ -1,6 +1,6 @@
-#C1
 
 import pickle
+import json
 
 def serialize(lst):
     if type(lst)==list:
@@ -63,10 +63,6 @@ def compare(lst1,lst2):
     else:
         print('Fail')
 
-
-#Homework
-
-import json
 file=input('Pls select file: H1-1,H1-2,H1-3,H1-4,H1-5.')
 filename=file+'.json'
 with open(filename,'r') as fh:
@@ -80,7 +76,7 @@ with open(filename,'w') as a:
 a.close()
 with open(filename,'r') as b:
     serial=pickle.load(b)
-
+serial=deserialize(serial)
 compare(data,serial)
 
 
