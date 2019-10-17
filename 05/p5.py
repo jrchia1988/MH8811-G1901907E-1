@@ -3,54 +3,41 @@ import pickle
 import json
 
 def serialize(lst):
-    if type(lst)==list:
-        string='list|'
+    string=str(type(lst).__name__)
+    if (type(lst)==list)|(type(lst)==tuple)|(type(lst)==set):
         for i in lst:
             string+=str(i)
             string+='|'
-            string+=str(type(i))
+            string+=str(type(i).__name__)
             string+='|'
         return string[:-1]
-    elif type(lst)==dict:
-        string='dict|'
+    else:
         for i,v in lst.items():
             string+=str(i)
             string+='|'
-            string+=str(type(i))
+            string+=str(type(i).__name__)
             string+='|'
             string+=str(v)
             string+='|'
-            string+=str(type(v))
+            string+=str(type(v).__name__)
             string+='|'
         return string
     
 def deserialize(string):
     a=string.split('|')
-    if a[0]=='list':
+    if (a[0]=='list')|(a[0]=='set')|(a[0]=='tuple'):
         lst=[]
         for i in range(1,len(a)-1,2):
-            if 'float' in a[i+1]:
-                lst.append(float(a[i]))
-            elif 'int' in a[i+1]:
-                lst.append(int(a[i]))
-            else:
-                lst.append(a[i])
+            b=eval(a[i+1]+'('+a[i]+')')
+            lst.append(b)
+        if (a[0]=='set')|(a[0]=='tuple'):
+            lst=eval(a[0]+'(lst)')
         return lst
     else:
         dct={}
         for i in range(1,len(a)-1,4):
-            if 'float' in a[i+1]:
-                b=float(a[i])
-            elif 'int' in a[i+1]:
-                b=int(a[i])
-            else:
-                b=a[i]
-            if 'float' in a[i+3]:
-                c=float(a[i+2])
-            elif 'int' in a[i+3]:
-                c=int(a[i+2])
-            else:
-                c=a[i+2]
+            b=eval(a[i+1]+'('+a[i]+')')
+            c=eval(a[i+3]+'('+a[i+2]+')')
             dct[b]=c
         return dct
         
