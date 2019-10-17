@@ -30,7 +30,7 @@ def deserialize(string):
             b=eval(a[i+1]+'('+a[i]+')')
             lst.append(b)
         if (a[0]=='set')|(a[0]=='tuple'):
-            lst=eval(a[0]+'(lst)')
+            lst=eval(a[0]+'('+lst+')')
         return lst
     else:
         dct={}
