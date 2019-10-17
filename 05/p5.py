@@ -10,7 +10,6 @@ def serialize(lst):
             string+='|'
             string+=str(type(i).__name__)
             string+='|'
-        return string[:-1]
     else:
         for i,v in lst.items():
             string+=str(i)
@@ -21,7 +20,7 @@ def serialize(lst):
             string+='|'
             string+=str(type(v).__name__)
             string+='|'
-        return string
+    return string[:-1]
     
 def deserialize(string):
     a=string.split('|')
